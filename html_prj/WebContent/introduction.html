@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Introduction</title>
+</head>
+<body>
+	<h1>자기소개</h1>
+	<form action="introductionOk.html">
+		<label for = "id">이름 : </label><input type = "text" id = "name" size = "10"> <br>
+		나이 : <input type = "number" id = "age" size = "10"> <br>
+<!-- 		생일 : <input type = "date" id = "bday"> <br> -->
+		생일 :
+		<select>
+			<option>-</option>
+			<option>1995</option>
+			<option>1996</option>
+			<option>1997</option>
+			<option>1998</option>
+			<option>1999</option>
+			<option>2000</option>
+			<option>2001</option>
+		</select>년
+		<select>
+			<option>-</option>
+			<option>1</option><option>2</option><option>3</option>
+			<option>4</option><option>5</option><option>6</option>
+			<option>7</option><option>8</option><option>9</option>
+			<option>10</option><option>11</option><option>12</option>
+		</select>월
+		<select>
+			<option>-</option>
+			<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+			<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+			<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+			<option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+			<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+			<option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+			<option>31</option>
+		</select>일 <br>
+		주소 : <input type = "text" id = "addr"> <br>
+		번호 : <input type = "tel" id = "first" size = "3">-<input type = "tel" id = "mid"size = "4">-<input type = "tel" id = "last" size = "4"> <br>
+		성별 : 
+		남<input type = "radio" name = "gender"> 
+		여<input type = "radio" name = "gender"> <br>
+		취미 : 
+		게임<input type = "checkbox" name = "hobby" value="game">
+		영화감상<input type = "checkbox" name = "hobby" value="movie">
+		유튜브시청<input type = "checkbox" name = "hobby" value="youtube">
+		음악감상<input type = "checkbox" name = "hobby" value="music">
+		운동<input type = "checkbox" name = "hobby" value="workout">
+		춤<input type = "checkbox" name = "hobby" value="dance"> <br>
+		자기소개 : <br><textarea cols = "30" rows = "5"></textarea><br>
+		<input type = "submit" value = "저장">
+		<input type = "reset" value = "초기화"> <br>
+	</form>
+</body>
+</html>
