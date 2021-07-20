@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Text CSS</title>
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+	body{
+		font-family: 'Nanum Pen Script', cursive, 맑은 고딕;
+/* 		font-size : 22px; */
+		font-size : 1.5em;
+	}
+	h1 {
+		font-weight : normal;
+	}
+	span {
+		font-weight : bold;
+		font-style : italic;
+		color : pink;
+		text-decoration: underline;
+	}
+	a {text-decoration : none}
+	
+	#shadow-p{
+		text-shadow: 1px 1px 1px gray;
+	}
+	
+	.align-p{
+		text-align: left;
+		text-indent : 100px;
+	}
+	#line-height-p{
+		line-height : 2;
+	}
+	p{
+		width : 200px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	
+	ul {
+		list-style-type : none;
+		list-style-image : url(img/dot.png);
+	}
+</style>
+</head>
+<body>
+	<h1>글꼴 테스트</h1>
+	<ul>
+		<li><a href="#">글꼴</a></li>
+		<li><a href="#">폰트크기</a></li>
+	</ul>
+	<p>
+	font-family속성을 이용하여 글꼴을 지정한다. <br>
+	작성법 -> font-family : '글꼴', 그다음글꼴
+	</p>
+	<p>
+	<span>font-size</span> 속성은 폰트의 크기를 지정하는 속성이다.<br>
+	font-size : 16px / font-size : 1.5em;
+	</p>
+	
+	<p id = "shadow-p">
+	text-shadow 속성은 글자의 그림자를 적용하는 속성 <br>
+	작성법 -> text-shadow : 1px 1px 1px #222; (가로, 세로, 번짐, 색상)
+	</p>
+	
+	<p class="align-p">
+	text-align 속성은 글자의 가로 정렬을 적용하는 속성<br>
+	작성법 -> text-align: left | center | right | justify;
+	</p>
+	
+	<p id = "line-height-p">
+	line-height 속성은 글자의 줄간격을 맞춰주는 속성<br>
+	작성법 -> line-height : 2 | 10px; (배수단위, 픽셀단위)
+	</p>
+	
+</body>
+</html>

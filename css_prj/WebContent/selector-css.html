@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{ /*태그선택자*/
+	color:green;
+}
+
+#color-black{ /*id 선택자*/
+	color:black;
+}
+.color-red{ /*class선택자*/
+	color:red;
+}
+#color-pink{
+	color:pink;
+}
+
+div, h2,p{
+	font-size:16px;
+}
+
+</style>
+
+
+</head>
+<body>
+	<!-- 기본선택자
+		1. 태그선택자*		: 태그를 이용해서 스타일을 적용
+		  예) p { 스타일 }
+		2. class선택자*	: 태그의 class속성값을 이용해서 스타일을 적용
+						  (여러개의 태그를 같은 class속성값으로 적용하여 사용)
+		  예) .class값 { 스타일 }
+		3. id선택자*		: 태그의 id속성값을 이용해서 스타일을 적용
+						  (하나의 태그만 id속성값으로 적용하여 사용)
+		  예) #id값 { 스타일 }
+		  	 <p id="id값"></p>
+		4. 속성선택자
+		5. 그룹선택자
+	 -->
+	 
+	 <h1 class ="color-red">스타일테스트입니다.</h1>
+	 <p id = "color-pink">안녕하세요 HTML 수업입니다.</p>
+	 <div id = "color-black">CSS 수업도 진행중입니다.</div>
+	 <div>div태그 입니다.</div>
+	 <span class="color-red">span태그입니다.</span>
+	 
+	 <h2>h2태그 입니다.</h2>
+	 <p>p태그 입니다.</p>
+</body>
+</html>
