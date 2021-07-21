@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Selector Class Css</title>
+
+<style type="text/css">
+	/* 순서 맞춰서 해야함 lvah
+	link
+	visited
+	hover
+	active
+	 */
+	a{
+/* 		display: table-cell; */
+		display: inline-block;
+		width: 100px;
+/* 		height: 50px; */
+		padding-top: 10px;
+		padding-bottom: 10px; 
+		border: 1px solid #222;
+		border-radius:5px;
+		text-align: center;
+/* 		vertical-align: middle; */
+		
+	}
+	
+	a:link {
+	 	color : black;
+	 	text-decoration: none;
+	}
+	a:visited {
+	 	color : black;
+	 	text-decoration: none;
+	}
+	a:hover{
+		color : white;
+		background-color: #444;
+	}
+	a:active{
+		border-color:pink;
+		color : red;
+		background-color: pink;
+	}
+	a:focus {
+		color : blue;
+	}
+	
+	input[type="text"] {
+		background: #CCC;
+	}
+	input[type="text"]:focus {
+		background: white;
+	}
+	input[type="password"]:enabled {
+		background-color: #B8CCEF;
+	}
+	input[type="password"]:disabled {
+		background-color: #6B7EBE
+	}
+	input[type="checkbox"]:checked{
+		border:1px solid #222;
+		color:red;
+	}
+	div:nth-last-child(2n+1){
+		background-color: #AAA;
+		color:white;
+	}
+	
+	
+</style>
+
+</head>
+<body>
+	<a href="#">가상클래스 테스트</a><br>
+	
+	focus테스트 : <input type="text"> <br>
+	en, dis테스트 : <input type="password" enabled><br>
+	checked테스트 : 
+	<label><input type = "checkbox" name= "a"> 체크1</label> 
+	<label><input type = "checkbox" name= "a"> 체크2</label> 
+	<div>box1</div>
+	<div>box2</div>
+	<div>box3</div>
+	<div>box4</div>
+	<div>box5</div>
+	<div>box6</div>
+	
+
+</body>
+</html>

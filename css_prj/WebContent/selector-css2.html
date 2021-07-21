@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	div p span {/* 하위 선택자 */
+		color: red;
+	}
+	div > span > span{/* 자식 선택자 */
+		color : blue;
+	}
+	
+	/* 속성 선택자 */
+	input[type]{
+		background-color: skyblue;
+	}
+	input[type=text]{
+		background-color: pink;
+	}
+	input[type=password]{
+		background-color: lightyellow;
+	}
+	
+</style>
+
+</head>
+<body>
+	<div>
+		<p> div > p 위치 <br>
+			<span> div > p > span 위치</span>
+		</p>
+	</div>
+	<div>
+		<span>div > span 위치 <br>
+			<span> div > span > span</span>
+		</span>
+	</div>
+	<input type = "text">
+	<input type = "text">
+	<input type = "password">
+	<input type = "email">
+</body>
+</html>
