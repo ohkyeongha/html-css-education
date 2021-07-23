@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 자바스크립트 함수
+		1. 작성법
+			function 함수명(매개변수 ... ) {
+				실행문
+				return 반환값; //생략 가능
+			}
+			
+			함수명(매개변수)
+			
+		2. 변수이용하여 작성법
+			var 변수명(함수명) = function(매개변수 ...) {
+				실행문
+			}
+			
+			변수명(매개변수 ...)
+			
+			 * 자바스크립트 함수를 호출할 때 매개변수의 수보다 적게 인자값을 넣을 수 있다.
+	-->
+	<button onclick="print();">버튼1 클릭</button>
+	<button onclick="printVal();">버튼2 클릭</button>
+	
+	<script type="text/javascript">
+		var total = returnMethod(10,15);
+		document.write("<span> 출력 : " + total + "<span>");
+		
+		function print(){
+			document.write("<div>함수 호출</div>");
+		}
+		
+		var printVal = function(){
+			document.write("<div>변수명 함수 호출</div>");
+		}
+		function returnMethod(a,b){
+			var sum = a+b;
+			return sum;
+		}
+		
+		/* 배열값 콘솔 확인 */
+		var arr=["변수1","변수2",1,10];
+		console.log(arr);
+		
+	</script>
+</body>
+</html>

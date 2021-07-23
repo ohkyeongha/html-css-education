@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 자바스크립트 작성위치
+		1. 인라인
+		2. 내부
+		3. 외부
+		
+		입출력
+		1. document.write(출력문);
+		2. prompt(질문, 답);
+		3. confirm(질문);
+		4. alert(알림창 출력문);
+		5. console.log(로그 출력문);
+	 -->
+	 
+	<!-- 작성위치 인라인 -->
+	<button onclick="alert('버튼 클릭 완료');">Button Click!</button>
+	
+	<!-- 작성위치 내부 -->
+	<script type="text/javascript">
+// 		alert("내부 스크립트 작성");	//시작할 때 알림창을 띄우고 시작
+		document.write("내부 스트립트 작성 출력");
+	</script>
+	
+	<!-- 작성위치 외부 -->
+	<script src = "start.js" type="text/javascript"></script>
+	
+	<!-- 출력문 -->
+	<h1>출력문</h1>
+	<script type="text/javascript">
+		document.write("<div> div1태그 출력</div>"
+						+ "<div> div2태그 출력</div>");
+// 		var ans = window.prompt("질문");	/* 변수 저장 */
+// 		document.write("<div> 답변: " + ans + "</div>");
+
+// 		var flag = window.confirm("공지사항을 확인하셨습니까?");
+// 		document.write("<span>" + flag + "<span>");
+
+// 		window.alert("알림창 입니다.");
+
+		console.log("로그값");
+		
+	</script>
+</body>
+</html>
