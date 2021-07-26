@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Interval Test</title>
+	<script type="text/javascript">
+		var inter;
+		function interval(){
+			/* setInterval(반복 호출 할 함수병, 반복 시간(ms단위)) */
+			inter = window.setInterval(printConsole, 1000);
+		}
+		function stopInterval(){
+			window.clearInterval(inter);
+		}
+		function printConsole(){
+			var now = new Date();
+			console.log(now);
+			
+		}
+	</script>
+</head>
+<body>
+	<h1>setInterval 테스트</h1>
+	<button onclick="interval();">setInterval 동작</button>
+	<button onclick="stopInterval();">setInterval 정지</button>
+	<div id="timeDiv"></div>
+	<script type="text/javascript">
+		window.setInterval(time, 1000);
+		function time(){
+			var timeDiv = document.getElementById("timeDiv");
+			//timeDiv.innerHTML = new Date;
+			var nowDate = new Date();
+			timeDiv.innerHTML = nowDate.getFullYear() + "년 " + (nowDate.getMonth()+1) + "월 "
+				+ nowDate.getDate()+"일 " + nowDate.getHours() + "시 " 
+				+ nowDate.getMinutes() + "분 " + nowDate.getSeconds() + "초";
+			//document.write(new Date);
+		}
+	</script>
+</body>
+</html>

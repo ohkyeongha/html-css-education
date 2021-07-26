@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id = "id-selector">id 선택자 영역</div>
+	<button onclick = "setColor();">색 변경</button>
+		<!-- 클래스는 중복이 가능하기 때문에 배열로 들어간다 -->
+	<div class = "class-selector">class1 선택자 영역</div>
+	<div class = "class-selector">class2 선택자 영역</div>
+	<button onclick = "classColerSet();">색 변경</button>
+	
+	<p id = "p-selector">
+		<span>p > span 태그1</span>
+		<br>
+		<span>p > span 태그2</span>
+	</p>
+	<span>그냥 span 태그</span>
+	
+	<script type="text/javascript">
+		//id선택자 사용
+		//document.getElementById(id선택자값);
+		var idSelect = document.getElementById("id-selector");
+		//alert(idSelect);
+		idSelect.style.color = "blue";
+		function setColor(){
+			idSelect.style.color = "pink";
+		}
+		
+		function classColerSet(){
+			var classSelect = document.getElementsByClassName("class-selector");
+			//console.log(classSelect);
+			for(var i=0;i<classSelect.length; i++){
+				classSelect.item(i).style.color="red";
+			}
+		}
+		
+		window.onload = function(){
+
+		var querySelect = document.querySelectorAll("#p-selector span");
+			for (var i = 0; i < querySelect.length; i++) {
+				querySelect.item(i).style.color = "purple"
+			}
+
+		}
+	</script>
+</body>
+</html>

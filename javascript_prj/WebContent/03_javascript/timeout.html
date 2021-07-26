@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>setTimeout 테스트</title>
+<script type="text/javascript">
+	function timeOut(){
+		//setTimeout(한번 동작 할 함수, 지연시간)
+		window.setTimeout(printConsole, 3000);
+	}
+	function printConsole(){
+		console.log(new Date);
+	}
+</script>
+</head>
+<body>
+	<h1>setTimeout 테스트</h1>
+	<button onclick="timeOut();">setTimeout 동작</button>
+</body>
+</html>
