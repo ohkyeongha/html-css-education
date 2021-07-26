@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var keyVal = document.getElementById("inputText");
+			var out = document.getElementById("output");
+			var btn = document.getElementById("inputBtn");
+			keyVal.onkeypress = function(e){
+				//console.log(e);
+				//13=enter
+				if(e.keyCode==13){
+					out.innerHTML += keyVal.value+"<br>";
+					keyVal.value = "";
+				}
+				
+			}
+			
+			btn.onclick = function(){
+				out.innerHTML += keyVal.value+"<br>";
+				keyVal.value = "";
+			}
+			
+		}
+	</script>
+
+</head>
+<body>
+	<input type = "text" id = "inputText">
+	<button id = "inputBtn">입력</button>
+	<div id = "output"></div>
+</body>
+</html>

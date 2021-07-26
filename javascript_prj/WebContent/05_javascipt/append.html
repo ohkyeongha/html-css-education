@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#id-selector {
+		background-color: green;
+		color:white;
+	}
+</style>
+
+<script type="text/javascript">
+	function appendText(){
+		var append = document.getElementById("append");
+		var header = document.createElement("h1");
+		var val = document.createTextNode("값");
+		
+		//속성 추가 2가지 방법
+		//header.id="id-selector";
+		//append.setAttribute("id","id-selector");
+		
+		//header.appendChild(val);
+		//append.appendChild(header);
+		
+		//innerHTML은 태그와 값을 다 포함
+		/* append.innerHTML = "<h1>값</h1>"; */
+		append.innerHTML = "<h1 id ='id-selector'>값</h1>";
+	}
+	function nodeSelect(){
+		var list = document.getElementById("list");
+		//list.innerHTML += "<li>리스트 추가</li>";
+		var li1 = list.firstElementChild;
+		var li2 = list.childNodes[2];
+		var li3 = list.lastChild;
+		
+		li1.style.color = "red";
+		li2.style.color = "blue";
+		li3.style.color = "green";
+		
+		var append = document.createTextNode("추가노드");
+		list.insertBefore(append,li3);
+	}
+</script>
+</head>
+<body>
+	<h1>태그 추가 예제</h1>
+	<button onclick="appendText();">텍스트 추가</button>
+	<button onclick="nodeSelect();">노트 추가</button>
+	<div id = "append"> <!-- <h1>값</h1> -->
+		<ul id="list"><li>1</li>
+			<li>2</li>
+			<li>3</li></ul>
+	</div>
+	
+</body>
+</html>

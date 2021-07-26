@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>select box</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var selectBox = document.getElementById("select-box");
+			selectBox.onchange = function(){
+				//alert(selectBox.options[selectBox.selectedIndex].value);
+				alert(selectBox.options[selectBox.selectedIndex].text);
+			}
+		}
+	</script>
+</head>
+<body>
+	<select id="select-box">
+		<option value="1" selected>선택1</option>
+		<option value="2">선택2</option>
+		<option value="3">선택3</option>
+		<option value="4">선택4</option>
+	</select>
+</body>
+</html>

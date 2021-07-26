@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<style type="text/css">
+		#listbox{
+			border: 1px solid black;
+			width:300px;
+			height: 200px;
+		}
+		#list {
+			border: 1px solid blue;
+			width : 200px;
+			height: 100px;
+			margin: 50px 25px;
+			
+		}
+	</style>
+	
+	<script type="text/javascript">
+		window.onload = function(){
+			var list = document.getElementById("list");
+			var listBox = document.getElementById("listbox");
+			var print = document.getElementById("print");
+			var aTag = document.getElementById("aTag");
+			
+			aTag.onclick = function(e){
+				e.stopPropagation();	/* 전파 방지 */
+				e.preventDefault();		/* 나 자신의 이벤르를 실행 안함 */
+				print.innerHTML += "a 태그 <br>"
+			}
+			
+			list.onclick = function(e){
+				e.stopPropagation();	/* 전파 방지 */
+				print.innerHTML += "ul 박스 <br>";
+			}
+			
+			listBox.onclick = function(e){
+				print.innerHTML += "div 박스 <br>";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="listbox">
+		<ul id="list">
+			<li><a id="aTag" href="https://www.naver.com">리스트1</a></li>
+			<li>리스트2</li>
+			<li>리스트3</li>
+		</ul>
+	</div>
+	<div id = "print"></div>
+</body>
+</html>

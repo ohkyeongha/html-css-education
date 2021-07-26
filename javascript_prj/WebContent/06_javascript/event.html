@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+		#select-btn{
+			border: 1px solid black;
+			cursor: pointer;
+		}
+		#listener-btn{
+			border: 1px solid green;
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript">
+		function inlineBtnClick(){
+			alert("인라인 버튼 클릭");
+		}
+		
+		window.onload = function(){
+			var btn = document.getElementById("select-btn");
+			btn.onclick = function(){
+				alert("선택자를 통한 버튼 클릭")
+			}
+			
+			var btn2 = document.getElementById("listener-btn");
+			btn2.addEventListener("click", listenerClick);
+			
+			function listenerClick(){
+				alert("리스너를 통한 버튼 클릭");
+			}
+			
+		}
+		
+	</script>
+</head>
+<body>
+	<h1>이벤트 실행 방법</h1>
+	<button onclick="inlineBtnClick();">인라인방식</button>
+	<div id = "select-btn">선택자를 통한 방식</div>
+	<span id = "listener-btn">이벤트리스너를 통한 방식</span>
+</body>
+</html>
