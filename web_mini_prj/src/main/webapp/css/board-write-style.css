@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+body {
+	background-color: #F2EAEC;
+}
+
+h1 {
+	margin: 20px auto;
+	width: 600px;
+	text-align: center;
+	color:#E484A9;
+
+}
+#writearea {
+	width: 600px;
+	margin: 0 auto;
+	border:1px solid #739667;
+	color:#425846;
+}
+#title, #writer, #content, #buttons {
+	
+	border:1px solid #739667;
+	margin: 8px;
+	padding : 8px 8px;
+	font-size: 16px;
+	
+}
+span {
+	
+	font-weight: bold;
+	margin: 8px;
+}
+#input-title, textarea {
+	margin: 0 auto;
+	font-size : 20px;
+	width: 558px;
+}
