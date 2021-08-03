@@ -1,13 +1,10 @@
 package com.kitri.miniboard.board;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kitri.miniboard.board.*;
 import com.kitri.miniboard.db.DBConnect;
 
 public class BoardDAO {
@@ -64,5 +61,32 @@ public class BoardDAO {
 		}
 		
 		return blist;
+	}
+	
+	public int insertBoard(BoardVo bvo) {
+		//conn
+		Connection conn = DBConnect.getInstance();
+		//sql
+		String sql = "INSERT INTO BOARD (BNO, BTITLE, BCONTENT, BWRITER, BREGDATE)"
+				+ " VALUES ( BOARD_BNO_SEQ , ?, ?, ?, SYSDATE )";
+		//prepared
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement();
+			pstmt.setString(1, bvo.getbTitle());
+			pstmt.setString(2, bvo.getbContent());
+			pstmt.setString(3, bvo.getbWriter());
+			//resultset
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, pstmt, null, null);
+		}
+		
 	}
 }
