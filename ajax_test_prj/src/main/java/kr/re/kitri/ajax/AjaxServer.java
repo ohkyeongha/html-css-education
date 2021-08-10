@@ -21,6 +21,7 @@ public class AjaxServer extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.print("ajax를 통한 통신 데이터");
+<<<<<<< HEAD
 		
 	}
 
@@ -54,6 +55,33 @@ public class AjaxServer extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print(jsonResponse);
 		
+=======
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		
+		JsonObject json = new JsonObject();
+		json.addProperty("id", id);
+		json.addProperty("name", name);
+		
+		JsonObject json2 = new JsonObject();
+		json2.addProperty("id", "user");
+		json2.addProperty("name", "사용자");
+		
+		JsonArray jsonArr = new JsonArray();
+		jsonArr.add(json);
+		jsonArr.add(json2);
+		
+		Gson gson = new Gson();
+		String jsonResponse = gson.toJson(jsonArr);
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(jsonResponse);
+>>>>>>> refs/remotes/origin/master
 		
 		
 	}
