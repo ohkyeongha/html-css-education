@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<bean id="cal" class="spring.di.cal.Calculator">
+		<!-- name 변수명 (a, b)  -->
+<!-- 		<property name="a"> <value>20</value> </property> -->
+<!-- 		<property name="b"> <value>15</value> </property> -->
+<!-- 		<constructor-arg name="a" value="20"  ></constructor-arg>index="0" -->
+<!-- 		<constructor-arg name="b" value="15"></constructor-arg>index="1" -->
+	</bean>
+	
+	<bean id="a" class="java.lang.Integer">
+		<constructor-arg value="15"/>
+	</bean>
+	<bean id="b" class="java.lang.Integer">
+		<constructor-arg value="15"/>
+	</bean>
+	
+	<context:annotation-config/> 
+</beans>

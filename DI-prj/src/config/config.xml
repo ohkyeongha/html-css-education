@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- 어노테이션 자동주입 사용하게 만들어줌 -->
+	<context:annotation-config/>
+	<context:component-scan base-package="spring.di.car"></context:component-scan>
+
+	<!-- ACar acar = new ACar(); -->
+	<!-- id = 변수명 class=실제 클래스 위치 -->
+<!-- 	<bean id="car" class="spring.di.car.ACar"/> -->
+	<!-- Tire1 tire1 = new Tire1(); -->
+<!-- 	<bean id="ire1" class="spring.di.car.Tire1"/> -->
+
+	<!-- @Autowired
+		 private Tire t <- new Tire1() -->
+<!-- 	<bean id="t1" class="spring.di.car.Tire1"/> -->
+<!-- 	<bean id="t2" class="spring.di.car.Tire2"/> -->
+	
+<!-- 	<bean id="car" class="spring.di.car.BCar"> -->
+<!-- 		<property name="t" ref="tire"/> -->
+
+<!-- 		<property name="t"> -->
+<!-- 			<ref bean="tire"/> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+</beans>
+<!-- 
+	SpringFramework 설정
+	1. xml 설정 방법
+	  - 구형 방식
+	  - markup language - 열고 닫는 태그 존재
+	  - 속성(dtd) 설정을 통해서 태그를 사용할 수 있다.
+	  - JSON과 비교해서 설명이 됨(데이터를 전송하기 위한 수단)
+	  
+	2. java (@annotation) 이용 방법
+	  - 신형 방식
+ -->
