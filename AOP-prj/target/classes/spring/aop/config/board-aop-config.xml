@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<context:component-scan base-package="spring.aop.board"/>
+	
+	<!-- 공통기능 -->
+	<bean id="log" class="spring.aop.board.Log"/>
+	<bean id="boardDAO" class="spring.aop.board.BoardDAO"/>
+	
+	<aop:config>
+		<!-- 핵심기능 -->
+<!-- 		<aop:pointcut id="function" expression="execution(public void spring.aop.board.BoardDAO.*Board(..))"/> -->
+		<aop:pointcut id="function-before" expression="execution(* spring.aop.board.*.*Board())"/><!-- 이렇게 쓸 수도 있다 -->
+		<aop:pointcut id="function-after" expression="execution(* spring.aop.board.*.*Board(*,..))"/><!-- 이렇게 쓸 수도 있다 -->
+		
+		<!-- 공통기능을 핵심기능의 전, 후 어느 위치에 동작시킬지 설정 -->
+		<aop:aspect ref="log">
+			<aop:before pointcut-ref="function-before" method="beforeLog"/>
+			<aop:after pointcut-ref="function-after" method="afterLog"/>
+<!-- 			<aop:around pointcut-ref="function" method="around"/> -->
+		</aop:aspect>
+	</aop:config>
+
+</beans>
