@@ -9,6 +9,7 @@ public class MemberVO {
 	private String email;
 	private String gender;
 	private String[] hobby;
+	
 	public String getId() {
 		return id;
 	}
@@ -51,8 +52,16 @@ public class MemberVO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String[] getHobby() {
-		return hobby;
+	public String getHobby() {
+		
+		String result="";
+		for(String h : hobby) {
+			result += h+", ";
+		}
+		if(!result.equals("")) {
+			result = result.substring(0, result.length()-2);
+		}
+		return result;
 	}
 	public void setHobby(String[] hobby) {
 		this.hobby = hobby;
