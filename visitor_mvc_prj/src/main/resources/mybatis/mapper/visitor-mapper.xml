@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 테이블 명을 주로 적는다. -->
+<!-- resultMap 활용 -->
+<mapper namespace="visitor">
+
+	<select id="selectVisitors" resultType="visitor">
+		SELECT * FROM VISITOR
+		ORDER BY VNO DESC
+	</select>
+
+	<insert id="insertVisitor" parameterType="visitor">
+		INSERT INTO VISITOR (VNO, NICKNAME, CONTENT)
+		VALUES (VISITOR_VNO_SEQ.NEXTVAL, #{nickname}, #{content})
+	</insert>
+
+	<!-- hashmap 사용 -->
+	<update id="updateVisitor" parameterType="visitor">
+		UPDATE VISITOR
+		SET CONTENT = #{content}
+		WHERE VNO = #{vno}
+	</update>
+
+	<delete id="deleteVisitor">
+		DELETE FROM VISITOR
+		WHERE VNO = #{vno}
+	</delete>
+
+</mapper>

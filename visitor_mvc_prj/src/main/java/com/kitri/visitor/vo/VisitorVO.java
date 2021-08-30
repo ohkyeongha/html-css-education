@@ -3,11 +3,12 @@ package com.kitri.visitor.vo;
 import java.util.Date;
 
 public class VisitorVO {
+
 	private int vno;
 	private String nickname;
 	private String content;
 	private Date regdate;
-	
+
 	public int getVno() {
 		return vno;
 	}
@@ -32,5 +33,8 @@ public class VisitorVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	
+	
+	
 	
 }
