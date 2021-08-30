@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 테이블 명을 주로 적는다. -->
+<!-- resultMap 활용 -->
+<mapper namespace="member">
+
+   <resultMap type="mybatis.vo.MemberVO" id="memberResultMap">
+<!-- property는 변수명 column은 db 컬럼명 -->
+      <result property="id" column="userid" /> 
+      <result property="pw" column="userpw" /> 
+      <result property="email" column="email" /> 
+   </resultMap>
+<!-- 전체조회 resultMap 활용 -->
+   <select id="selectMembers" resultMap="memberResultMap">
+      SELECT * FROM MEMBER
+   </select>
+<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+   
+<!-- 동적쿼리 사용 -->
+   <select id="selectMember" resultMap="memberResultMap">
+      SELECT * FROM MEMBER
+      WHERE 1=1
+      
+      <if test="id != null">
+         AND USERID = #{id}
+      </if>
+      
+      <if test="pw != null">
+         AND USERPW = #{pw}
+      </if>
+      
+   </select>
+<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+   
+   <insert id="insertMember" parameterType="member">
+      INSERT INTO MEMBER (USERID, USERPW, EMAIL)
+      VALUES (#{userId}, #{userPw}, #{email})
+   </insert>
+   
+<!--    <update id="updateMember" parameterType="member"> -->
+<!--       UPDATE MEMBER -->
+<!--       SET USERPW = #{userPw}, -->
+<!--          EMAIL = #{email} -->
+<!--       WHERE USERID = #{userId} -->
+<!--    </update> -->
+   
+<!-- hashmap 사용 -->
+   <update id="updateMember"> 
+      UPDATE MEMBER
+      SET USERPW = #{pw},
+         EMAIL = #{email}
+      WHERE USERID = #{id}
+   </update>
+   
+   <delete id="deleteMember" parameterType="member">
+      DELETE FROM MEMBER
+      WHERE USERID = #{userid}
+   </delete>
+   
+</mapper>
