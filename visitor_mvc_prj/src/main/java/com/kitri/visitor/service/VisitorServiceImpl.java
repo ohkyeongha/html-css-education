@@ -5,8 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.DefaultTransactionDefinition;
+//import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.kitri.visitor.dao.VisitorDAO;
 import com.kitri.visitor.vo.VisitorVO;
@@ -20,28 +21,33 @@ public class VisitorServiceImpl implements VisitorService{
 	
 	PlatformTransactionManager transactionManager;
 	
+	@Transactional(readOnly = true)
 	@Override
 	public List<VisitorVO> searchVisitors() {
 		return vdao.selectVisitors();
 	}
-
+	
+	@Transactional(rollbackFor = Exception.class) //얘만 트랜잭션 설정 해준다
 	@Override
 	public int registVisitor(VisitorVO vo) {
 		
-		TransactionStatus status = transactionManager.getTransaction(new DefaultTransactionDefinition());
+//		TransactionStatus status = transactionManager.getTransaction(new DefaultTransactionDefinition());
 		
-		try {
+//		try {
 			vdao.insertVisitor(vo);
-			vo.setContent("내용 수정");
 			vo.setVno(1);
-			vdao.updateVisitor(vo);
-			transactionManager.commit(status);
+			vo.setContent("내용 수정");
 			
-		} catch (Exception e) {
-			e.printStackTrace();
-			transactionManager.rollback(status);
-		}
-		
+//			System.out.println(0/0);
+			
+			vdao.updateVisitor(vo);
+//			transactionManager.commit(status);
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			transactionManager.rollback(status);
+//		}
+//		
 		return 0;
 	}
 
