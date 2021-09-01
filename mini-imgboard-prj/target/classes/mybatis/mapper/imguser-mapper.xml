@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="imguser">
+	
+	<resultMap id="imgUserMap" type="imguser">
+		<result property="id" column="user_id"/>
+		<result property="pw" column="user_pw"/>
+		<result property="name" column="user_name"/>
+		<result property="email" column="user_email"/>
+	</resultMap>
+	
+	<select id="selectImgUser" resultMap="imgUserMap">
+		SELECT * FROM IMG_USER
+		WHERE USER_ID = #{id}
+		AND USER_PW = #{pw}
+	</select>
+	
+	<insert id="insertImgrUser" parameterType="imguser">
+		INSERT INTO IMG_USER (USER_ID, USER_PW, USER_NAME, USER_EMAIL)
+		VALUES (#{id},#{pw},#{name},#{email})
+	</insert>
+</mapper>

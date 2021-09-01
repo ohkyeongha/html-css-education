@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- 에러난다면 이부분 복사해넣기 -->
+<!DOCTYPE log4j:configuration SYSTEM
+	"http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+	<!-- 여기까지 -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders --><!-- 로그를 어떻게 찍어줄지 설정 (여기선 콘솔용) -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" 
+				value="[%-5p][%d{yy.MM.dd hh:mm:ss}][%c{1}] - %m%n" />
+				<!-- 5자리 차지  로그 시간 기록		  클래스 첫번째자식  실제로그-->
+		</layout>
+	</appender>
+	
+	<!-- Application Loggers -->
+	<logger name="com.kitri.mini">
+		<level value="info" />
+	</logger>
+	
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.beans">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="warn" />
+		<appender-ref ref="console" />
+	</root>
+	
+</log4j:configuration>

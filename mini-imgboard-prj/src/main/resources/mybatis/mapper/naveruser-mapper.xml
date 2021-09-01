@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="naveruser">
+	
+	<resultMap type="naveruser" id="naverUserMap">
+		<result property="email" column="n_email"/>
+		<result property="name" column="n_name"/>
+		<result property="birthday" column="n_birthday"/>
+		<result property="mobile" column="n_mobile"/>
+	</resultMap>
+	
+	<select id="selectNaverUser" resultMap="naverUserMap">
+		SELECT * FROM NAVER_USER
+		WHERE N_EMAIL= #{email}
+	</select>
+	
+	<insert id="insertNaverUser" parameterType="naveruser">
+		INSERT INTO NAVER_USER (N_EMAIL, N_NAME, N_BIRTHDAY, N_MOBILE)
+		VALUES (#{email},#{name},#{birthday},#{mobile})
+	</insert>
+</mapper>
