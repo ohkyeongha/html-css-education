@@ -81,7 +81,7 @@ input[type=text], input[type=password]{
 				<input type="password" name="pw" id="pw" placeholder="비밀번호">
 			</div>
 			<div>
-				<input type="button" name="loginBtn" id="loginBtn" value="로그인"> <a href="">회원가입</a>
+				<input type="button" name="loginBtn" id="loginBtn" value="로그인"> <a href="${pageContext.request.contextPath}/user/signup">회원가입</a>
 			</div>
 			<div>
 				<span id="loginMsg"></span>

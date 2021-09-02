@@ -7,7 +7,7 @@
 	<typeAliases>
 		<typeAlias alias="naveruser" type="com.kitri.mini.user.vo.NaverUserVO" />
 		<typeAlias alias="imguser" type="com.kitri.mini.user.vo.ImgUserVO" />
+		<typeAlias alias="imgboard" type="com.kitri.mini.board.vo.ImgBoardVO" />
 	</typeAliases>
-
 </configuration>
   

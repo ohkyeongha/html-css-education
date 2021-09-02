@@ -24,4 +24,31 @@ public class ImgUserServiceImpl implements ImgUserService{
 		return loginFlag;
 	}
 
+	@Override
+	public boolean idCheck(String id) {
+		
+		int result = imgUserDAO.selectIdCheck(id);
+		boolean idCheckFlag = false;
+		if(result!=0) {
+			//중복된 id 존재
+			idCheckFlag = false;
+		} else {
+			//id 사용가능
+			idCheckFlag = true;
+		}
+		return idCheckFlag;
+	}
+
+	@Override
+	public boolean registImgUser(ImgUserVO iuvo) {
+		
+		int result = imgUserDAO.insertImgUser(iuvo);
+		boolean regstCheckFlag = false;
+		if(result !=0) {
+			regstCheckFlag = true;
+		}
+		
+		return regstCheckFlag;
+	}
+
 }

@@ -16,6 +16,11 @@
 		AND USER_PW = #{pw}
 	</select>
 	
+	<select id="selectIdCheck" resultType="int">
+		SELECT COUNT(*) FROM IMG_USER
+		WHERE USER_ID = #{id}
+	</select>
+	
 	<insert id="insertImgrUser" parameterType="imguser">
 		INSERT INTO IMG_USER (USER_ID, USER_PW, USER_NAME, USER_EMAIL)
 		VALUES (#{id},#{pw},#{name},#{email})

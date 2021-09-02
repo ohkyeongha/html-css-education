@@ -14,7 +14,16 @@ public class ImgUserDAOImpl implements ImgUserDAO{
 	
 	@Override
 	public ImgUserVO selectImgUser(ImgUserVO iuvo) {
-		
 		return sqlSession.selectOne("imguser.selectImgUser",iuvo);
+	}
+
+	@Override
+	public int selectIdCheck(String id) {
+		return sqlSession.selectOne("imguser.selectIdCheck",id);
+	}
+
+	@Override
+	public int insertImgUser(ImgUserVO iuvo) {
+		return sqlSession.insert("imguser.insertImgrUser",iuvo);
 	}
 }

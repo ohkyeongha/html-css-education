@@ -30,21 +30,54 @@ public class UserController {
 	public String naverlogin() {
 		return "naverlogin";
 	}
+	@RequestMapping("/signup")
+	public String signup() {
+		return "signup";
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		if(session.getAttribute("id")!=null) {
+			session.removeAttribute("id");
+		}
+		
+		return "redirect:/user/login";
+	}
+	
+	@RequestMapping("/signup-regist")
+	public String signupRegist(ImgUserVO iuvo) {
+		//가입
+		boolean registCheckFlag = imgUserService.registImgUser(iuvo);
+		
+		String path = "";
+		
+		if(registCheckFlag) {
+			path="redirect:/user/login";
+		} else {
+			path="redirect:/user/signup";
+		}
+		
+		return path;
+	}
+	
+	@RequestMapping("idcheck")
+	@ResponseBody
+	public boolean idCheck(String id) {
+		//id가 있는지 조회
+		boolean idCheckFlag = imgUserService.idCheck(id);
+		
+		//id 존재 : 결과값 false, id 사용가능 : 결과값 true
+		return idCheckFlag;
+	}
 	
 	@RequestMapping("/logincheck")
 	@ResponseBody
 	public boolean logincheck(ImgUserVO iuvo, HttpSession session) {
 		boolean loginFlag = imgUserService.loginCheckImgUser(iuvo);
 		
-//		String path="";
-//		
-//		if(loginFlag) {
-//			session.setAttribute("id", iuvo.getId());
-//			path = "redirect:/main";
-//		} else {
-//			path = "redirect:/login";
-//		}
-		
+		if(loginFlag) {
+			session.setAttribute("id", iuvo.getId());
+		}		
 		return loginFlag;
 	}
 	
