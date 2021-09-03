@@ -14,7 +14,7 @@ h1 {
 
 #imgBoardList {
 	margin: 0 auto;
-	width: 70%;
+	width: 632px;
 	border: 1px solid gray;
 	display: flex;
 	flex-wrap: wrap;
@@ -32,9 +32,9 @@ h1 {
 	font-size: 20px;
 	clear: both;
 	margin: 0 auto;
-	width: 70%;
+	width: 632px;
 	height: 30px;
-	border: 1px solid gray;
+/* 	border: 1px solid gray; */
 	cursor: pointer;
 }
 
@@ -62,15 +62,14 @@ h1 {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 500px;
-	height: 300px;
-	width: 500px;
+	width: 800px;
+	height: 600px;
 	background-color: white;
 	border-radius: 20px;
 	z-index: 2;
 }
 
-#modal-cancle-btn {
+#modal-cancel-btn {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -83,7 +82,7 @@ h1 {
 	cursor: pointer;
 }
 
-#modal-cancle-area {
+#modal-cancel-area {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -93,8 +92,16 @@ h1 {
 	z-index: 1;
 }
 
-#modal-cancle-btn:hover {
+#modal-cancel-btn:hover {
 	background-color: #222;
+}
+#modal-imgboard-box{
+	margin:20px;
+/* 	text-align: center; */
+}
+#modal-imgboard-box img{
+	width: 400px;
+	height: 400px;
 }
 </style>
 
@@ -170,31 +177,43 @@ h1 {
 	<div id="moreList">더보기</div>
 	<div id="modal-wrapper">
 		<div id="modal-box">
-			<div id="modal-cancle-btn">X</div>
 		</div>
-		<div id="modal-cancle-area"></div>
+		<div id="modal-cancel-btn">X</div>
+		<div id="modal-cancel-area"></div>
 	</div>
 
 	<script type="text/javascript">
-		$("#imgBoardList").on("click",function(event){
-			if(event.target.className=="imgBoardBox" || event.target.nodeName=="IMG"){
-				
-				$("modal-box").append(event.target.parent);
-				$("#modal-wrapper").show();
-				
-			}
-		});
+		$("#imgBoardList").on(
+				"click",
+				function(event) {
+					if (event.target.className == "imgBoardBox"|| event.target.nodeName == "IMG") {
+						let imgBoardBox = $(event.target).parent();
+						let userid = imgBoardBox.children("input:eq(1)").val();
+						let content = imgBoardBox.children("input:eq(2)").val();
+						let regdate = imgBoardBox.children("input:eq(3)").val();
+						let img = $(event.target);
+						
+						let html = "<div id='modal-imgboard-box'>"
+									+"<img  alt='이미지' src='"+img.attr("src") + "'>"
+									+"<div id='modal-userid-regdate'>" + userid + " - "+ regdate + "</div>"
+									+"<div id='modal-content'>" + content + "</div>"
+									+"</div>";
+						
+						$("#modal-box").append(html);
+						$("#modal-wrapper").show();
+					}
+
+				});
 		
-		var modalBtn = document.getElementById("modal-btn");
-		var modalWrap = document.getElementById("modal-wrapper");
-		var cancleArea = document.getElementById("modal-cancle-area");
-		cancleArea.onclick = function() {
-			modalWrap.style.display = "none";
-		}
-		var cancleBtn = document.getElementById("modal-cancle-btn");
-		cancleBtn.onclick = function() {
-			modalWrap.style.display = "none";
-		}
+		
+		$("#modal-cancel-area").on("click", function() {
+			$("#modal-box").empty();
+			$("#modal-wrapper").hide();
+		});
+		$("#modal-cancel-btn").on("click", function() {
+			$("#modal-box").empty();
+			$("#modal-wrapper").hide();
+		});
 	</script>
 </body>
 </html>

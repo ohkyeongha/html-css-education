@@ -7,7 +7,7 @@ public class ImgBoardVO {
 	private String userid;
 	private String content;
 	private String img;
-	private Date regdate;
+	private String regdate;
 	
 	public int getNo() {
 		return no;
@@ -33,10 +33,11 @@ public class ImgBoardVO {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+	
 }
